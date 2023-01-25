@@ -32,7 +32,7 @@ const addCardHandler = () => {
       v-if="!isEditing"
       class="block select-none"
     ></div>
-    <!-- P62 -->
+
     <div>
       <input
         type="text"

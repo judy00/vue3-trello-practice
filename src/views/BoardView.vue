@@ -16,12 +16,6 @@ const dragOptions = ref({
     class="bg-[#c5bcbc] h-[100vh] w-full block overflow-x-auto overflow-y-hidden"
   >
     <div id="board-wrapper" class="h-full w-full p-4 block overflow-auto">
-      <!-- <div class="flex flex-row items-start"> -->
-      <!-- <Card v-for="card in list" :key="card.id" v-bind="card" /> -->
-      <!-- 把 card 資料傳給 Card component, 不使用:card="card", 因子元件會一同修改同 ref, 使用 v-bind 傳進去物件會解構變 id ,title, task-->
-      <!-- <AddNewCard /> -->
-      <!-- </div> -->
-
       <draggable
         :list="cards"
         v-bind="dragOptions"
@@ -30,12 +24,12 @@ const dragOptions = ref({
         ghost-class="opacity-30"
         class="flex flex-row items-start"
       >
-        <!-- 原本的 Card，沒有 v-for 了, element 不可改名＝v-for前面那個詞-->
+        <!-- element 不可改名，element 表示原 v-for 前面那個詞-->
         <template #item="{ element }">
           <Card v-bind="element" />
         </template>
 
-        <!-- AddNewCard，像 slot-->
+        <!-- AddNewCard，用 slot-->
         <template #footer>
           <AddNewCard />
         </template>

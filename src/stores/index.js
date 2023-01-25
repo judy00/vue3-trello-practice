@@ -88,19 +88,11 @@ export const useStore = defineStore("store", () => {
 
   // 更新卡片標題
   const updateListTitle = (cardId = "", title = "") => {
-    console.log("cardId :>> ", cardId);
-    console.log("title :>> ", title);
-    const card = list.value.find((list) => list.id === cardId); // 找到 id
+    const card = list.value.find((list) => list.id === cardId);
 
     if (title) {
       card.title = title;
     } else {
-      // 如果沒有 title，就刪除該卡片
-      console.log("如果沒有 title，就刪除該卡片 ");
-      console.log(
-        "filter>> ",
-        list.value.filter((list) => list.id !== cardId)
-      );
       list.value = list.value.filter((list) => list.id !== cardId);
     }
   };
